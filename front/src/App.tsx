@@ -3,10 +3,22 @@ import withContexts from './HOC/withContexts'
 import { ThemeProvider } from 'styled-components'
 import { lightTheme } from './styles/theme'
 
+import { Routes, Route } from 'react-router-dom'
+import Home from './components/home'
+
+import GlobalStyle from './styles/global'
+import Login from './components/login'
+
 const App = () => {
     return (
         <ThemeProvider theme={lightTheme}>
-            <div></div>
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/login/customer" element={<Login />} />
+                <Route path="/login/restaurant" element={<Login />} />
+                <Route path="/login/delivery" element={<Login />} />
+            </Routes>
+            <GlobalStyle />
         </ThemeProvider>
     )
 }

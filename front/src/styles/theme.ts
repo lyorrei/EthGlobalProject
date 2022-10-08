@@ -10,7 +10,7 @@ const colors = {
     white: '#fff',
     black: '#000',
 
-    primary: '#069be2',
+    primary: '#FF9935',
 }
 
 const sizes = {
