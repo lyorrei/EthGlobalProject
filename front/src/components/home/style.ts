@@ -5,10 +5,10 @@ export const Container = styled.div``
 
 export const Title = styled.h1`
     position: absolute;
-    width: 450px;
+    width: 550px;
     height: 319px;
     left: 100px;
-    top: 157px;
+    top: 180px;
 
     font-weight: 700;
     font-size: 6rem;
@@ -18,19 +18,27 @@ export const Title = styled.h1`
 
     span {
         color: ${(props) => props.theme.colors.primary};
-    }   
+    }
+`
+
+export const Subtitle = styled.h3`
+    font-size: 1.4rem;
+    position: absolute;
+    width: 420px;
+    height: 200px;
+    left: 100px;
+    top: 450px;
+    font-weight: 500;
 `
 
 export const HomeButton = styled(Button)`
     position: absolute;
     width: 239px;
     height: 52px;
-    left: 120px;
-    top: 599px;
+    left: 100px;
+    top: 550px;
 
     background: ${(props) => props.theme.colors.primary};
     border: 1px solid #efae6e;
     border-radius: 1.5rem;
-
-    
 `

@@ -14,9 +14,10 @@ import RestaurantHome from './components/restaurantHome'
 import Navbar from './components/navbar'
 
 import styled from 'styled-components'
+import Restaurant from './components/restaurants'
 
 const PageContainer = styled.div`
-    margin-top: calc(5vh+7.2rem);
+    padding-top: calc(5vh + 7.2rem);
 `
 
 const App = () => {
@@ -26,10 +27,11 @@ const App = () => {
             <Navbar />
             <PageContainer>
                 <Routes>
-                    <Route path="/" element={<Home />} />
                     <Route path="/login/customer" element={<Login />} />
                     <Route path="/login/restaurant" element={<Login />} />
                     <Route path="/login/delivery" element={<Login />} />
+                    <Route path="/restaurants" element={<Restaurant />} />
+                    <Route path="/" element={<Home />} />
                 </Routes>
             </PageContainer>
 
