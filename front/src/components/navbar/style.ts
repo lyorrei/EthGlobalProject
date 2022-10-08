@@ -45,21 +45,26 @@ export const Item = styled.div`
 
     border-radius: ${(props) => props.theme.sizes.borderRadius};
 
-     a {
+    a,
+    button {
         font-weight: 600;
         font-size: 1.8rem;
         line-height: 2.4rem;
         text-decoration: none;
         background: none;
         color: ${(props) => props.theme.colors.white};
-        transition: all .4s;
+        transition: all 0.4s;
+        outline: none;
+        border: none;
+        cursor: pointer;
     }
 
     &:hover {
         background-color: ${(props) => props.theme.colors.white};
     }
 
-    &:hover a {
+    &:hover a,
+    &:hover button {
         color: ${(props) => props.theme.colors.greyDark1};
     }
 `
