@@ -8,6 +8,7 @@ import Home from './components/home'
 
 import GlobalStyle from './styles/global'
 import Login from './components/login'
+import RestaurantHome from './components/restaurantHome'
 
 const App = () => {
     return (
@@ -15,7 +16,7 @@ const App = () => {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/login/customer" element={<Login />} />
-                <Route path="/login/restaurant" element={<Login />} />
+                <Route path="/login/restaurant" element={<RestaurantHome />} />
                 <Route path="/login/delivery" element={<Login />} />
             </Routes>
             <GlobalStyle />
