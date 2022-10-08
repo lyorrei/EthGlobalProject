@@ -17,5 +17,6 @@ export default createGlobalStyle`
         font-family: ${props => props.theme.fontFamily};
         position: relative;
         min-height: 100vh;
+        overflow-x: hidden;
     }
 `

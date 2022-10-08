@@ -7,7 +7,7 @@ export const Title = styled.h1`
     position: absolute;
     width: 450px;
     height: 319px;
-    left: 84px;
+    left: 100px;
     top: 157px;
 
     font-weight: 700;
@@ -18,14 +18,14 @@ export const Title = styled.h1`
 
     span {
         color: ${(props) => props.theme.colors.primary};
-    }
+    }   
 `
 
 export const HomeButton = styled(Button)`
     position: absolute;
     width: 239px;
     height: 52px;
-    left: 98px;
+    left: 120px;
     top: 599px;
 
     background: ${(props) => props.theme.colors.primary};
