@@ -11,12 +11,7 @@ module.exports = function override(config) {
         os: require.resolve('os-browserify'),
         url: require.resolve('url'),
     })
-    config.module.rules.unshift({
-        test: /\.m?js$/,
-        resolve: {
-            fullySpecified: false, // disable the behavior
-        },
-    })
+    
     config.resolve.fallback = fallback
     config.plugins = (config.plugins || []).concat([
         new webpack.ProvidePlugin({
@@ -25,8 +20,11 @@ module.exports = function override(config) {
         }),
     ])
     config.ignoreWarnings = [/Failed to parse source map/]
-    config.resolve = {
-        extensions: ['.js', '.jsx', '.ts', '.tsx'],
-    }
+    config.module.rules.unshift({
+        test: /\.m?js$/,
+        resolve: {
+            fullySpecified: false, // disable the behavior
+        },
+    })
     return config
 }

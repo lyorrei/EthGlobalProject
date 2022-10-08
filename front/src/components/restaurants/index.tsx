@@ -1,8 +1,6 @@
 import React from 'react'
 
-interface Props {}
-
-const Restaurant: React.FC<Props> = (props) => {
+const Restaurant: React.FC = (props) => {
     return <div>Restaurant</div>
 }
 

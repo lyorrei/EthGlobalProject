@@ -4,9 +4,7 @@ import Navbar from '../navbar'
 import AnimatedFood from '../animatedFood'
 import { useAuth } from '../../contexts/auth'
 
-interface Props {}
-
-const Home: React.FC<Props> = (props) => {
+const Home: React.FC = () => {
     const { login } = useAuth()
 
     return (

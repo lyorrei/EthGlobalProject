@@ -12,7 +12,6 @@ const Navbar: React.FC<Props> = (props) => {
     return (
         <Container>
             <Logo>
-                {/* <img src="" alt="" /> */}
                 <ReactLogo />
                 Snack Fair
             </Logo>
