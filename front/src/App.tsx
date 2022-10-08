@@ -8,6 +8,9 @@ import Home from './components/home'
 
 import GlobalStyle from './styles/global'
 import Login from './components/login'
+
+import RestaurantHome from './components/restaurantHome'
+
 import Navbar from './components/navbar'
 
 import styled from 'styled-components'
@@ -19,6 +22,7 @@ const PageContainer = styled.div`
 const App = () => {
     return (
         <ThemeProvider theme={lightTheme}>
+
             <Navbar />
             <PageContainer>
                 <Routes>
