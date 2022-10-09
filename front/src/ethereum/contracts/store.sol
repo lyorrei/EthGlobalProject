@@ -2,8 +2,8 @@
 
 pragma solidity ^0.8.15;
 
-import "../node_modules/@openzeppelin/contracts/token/ERC1155/utils/ERC1155Holder.sol";
-import "../node_modules/@openzeppelin/contracts/token/ERC721/utils/ERC721Holder.sol";
+import "../../../node_modules/@openzeppelin/contracts/token/ERC1155/utils/ERC1155Holder.sol";
+import "../../../node_modules/@openzeppelin/contracts/token/ERC721/utils/ERC721Holder.sol";
 import "./product.sol";
 import "./orders.sol";
 import "./storesManagement.sol";
@@ -11,6 +11,8 @@ import "./storesManagement.sol";
 contract Store is ERC1155Holder, ERC721Holder {
     string public name;
     string public document;
+    string public uri;
+    string public physicalAddress;
     address public owner;
     uint256 public openRequests;
     address private ordersAddress;
@@ -30,7 +32,9 @@ contract Store is ERC1155Holder, ERC721Holder {
         string memory _name,
         string memory _document,
         address _ordersAddress,
-        address _storesManagementAddress
+        address _storesManagementAddress,
+        string _physicalAddress,
+        string _uri
     ) {
         owner = msg.sender;
         name = _name;
@@ -40,17 +44,40 @@ contract Store is ERC1155Holder, ERC721Holder {
         ordersInstance = Orders(ordersAddress);
         storesManagementInstance = StoresManagement(_storesManagementAddress);
         storesManagementInstance.addNewStore(address(this));
+        uri = _uri;
+        physicalAddress = _physicalAddress;
     }
 
-    function createProduct(string memory _tokenURI) public isOwner {
-        products.createProduct(_tokenURI);
+    function createProduct(string memory _tokenURI, uint256 _amount)
+        public
+        isOwner
+    {
+        products.createProduct(_tokenURI, _amount);
     }
 
-    function removeProduct(uint256 _id) public isOwner {
-        products.burnProduct(_id);
+    function removeProduct(uint256 _id, uint256 _amount) public isOwner {
+        products.burnProduct(_id, _amount);
     }
 
-    function sendOrder(address _deliverMan, uint256 _orderId) public isOwner {
+    function getProducts() public {
+        uint256 id = products._tokenIds();
+        uint256[] memory itens;
+        address[] addresses;
+        string[] uris;
+        for (uint256 i = 0; i < id; i++) {
+            itens[i] = i;
+            addresses[i] = address(this);
+        }
+        uint256[] amountOfItens = products.balanceOfBatch(addresses, itens);
+        for (uint256 i = 0; i < id; i++) {
+            if (amountOfItens[i] > 0) {
+                uris.push(products.uri(i));
+            }
+        }
+        return uris;
+    }
+
+    function sendOrder(address _deliveryMan, uint256 _orderId) public isOwner {
         Orders.OrderDetails[] memory itens = ordersInstance
             .getOrderDetailsArray(_orderId);
         uint256[] memory itensId;
@@ -61,13 +88,13 @@ contract Store is ERC1155Holder, ERC721Holder {
         }
         products.safeBatchTransferFrom(
             msg.sender,
-            _deliverMan,
+            _deliveryMan,
             itensId,
             itensAmount,
             ""
         );
         ordersInstance.changeOrderStatus(_orderId, 2);
-        ordersInstance.transferFrom(msg.sender, _deliverMan, _orderId);
+        ordersInstance.transferFrom(msg.sender, _deliveryMan, _orderId);
     }
 
     function onERC1155Received(
