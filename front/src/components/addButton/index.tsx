@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { Container, Button, Text } from "./style";
 import plusIcon from "../../assets/plusIcon.png";
@@ -7,6 +8,7 @@ import NewProductForm from "../newProductForm";
 interface Props {}
 
 const AddButton: React.FC<Props> = (props) => {
+
   const [showModal, setShowModal] = useState(false);
 
   const closeModal = () => {
@@ -34,4 +36,5 @@ const AddButton: React.FC<Props> = (props) => {
   );
 };
 
-export default AddButton;
+
+export default AddButton

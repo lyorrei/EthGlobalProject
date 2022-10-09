@@ -20,6 +20,7 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.37.0",
     "react-icons": "^4.4.0",
+    "react-image-magnify": "^2.7.4",
     "react-router-dom": "^6.4.2",
     "react-scripts": "5.0.1",
     "react-spinners": "^0.13.6",
@@ -54,6 +55,7 @@
     ]
   },
   "devDependencies": {
+    "@types/react-image-magnify": "^2.7.1",
     "@types/styled-components": "^5.1.26",
     "assert": "^2.0.0",
     "buffer": "^6.0.3",
