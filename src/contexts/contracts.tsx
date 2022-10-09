@@ -53,28 +53,28 @@ export default function ContractsProvider({ children }: any) {
         return storesData
     }
 
-    // const getProducts = async (restaurantAddress: string) => {
-    //     const storesContract: any = await store(restaurantAddress)
-    //     const storesAddresses = await storesContract.getStores()
-    //     const storesData = []
+    const getProducts = async (restaurantAddress: string) => {
+        const storesContract: any = await store(restaurantAddress)
+        const storesAddresses = await storesContract.getStores()
+        const storesData = []
 
-    //     for (let i = 0; i < storesAddresses; i++) {
-    //         const storeObject: any = {}
-    //         const storesContract = await store( storesAddresses[i])
+        for (let i = 0; i < storesAddresses; i++) {
+            const storeObject: any = {}
+            const storesContract = await store( storesAddresses[i])
 
-    //         storeObject.name = await storesContract.name()
-    //         const contractIpfs = await storesContract.uri()
+            storeObject.name = await storesContract.name()
+            const contractIpfs = await storesContract.uri()
 
-    //         const formatedIpfsLink =
-    //             'https://ipfs.io/ipfs/' + contractIpfs.slice(7)
+            const formatedIpfsLink =
+                'https://ipfs.io/ipfs/' + contractIpfs.slice(7)
 
-    //         storeObject.imageUrl = formatedIpfsLink
-    //         storeObject.name = await storesContract.name()
-    //         storesData.push(storeObject)
-    //     }
+            storeObject.imageUrl = formatedIpfsLink
+            storeObject.name = await storesContract.name()
+            storesData.push(storeObject)
+        }
 
-    //     return storesData
-    // }
+        return storesData
+    }
 
     const isRestaurantOwner = async () => {
         const storesManagementContract: any = await storesManagement()
@@ -90,12 +90,12 @@ export default function ContractsProvider({ children }: any) {
         }
     }
 
-    return <ContractsContext.Provider value={{ getRestaurants, isRestaurantOwner }}>{children}</ContractsContext.Provider>
+    return <ContractsContext.Provider value={{ getRestaurants, isRestaurantOwner, getProducts }}>{children}</ContractsContext.Provider>
 }
 
 export function useContracts() {
     const context = useContext<any>(ContractsContext)
     if (!context) throw new Error('useContracts must be used within a ContractsProvider')
-    const { getRestaurants, isRestaurantOwner } = context
-    return { getRestaurants, isRestaurantOwner }
+    const { getRestaurants, isRestaurantOwner, getProducts } = context
+    return { getRestaurants, isRestaurantOwner, getProducts }
 }
