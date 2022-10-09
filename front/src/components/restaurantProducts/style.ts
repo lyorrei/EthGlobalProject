@@ -10,7 +10,8 @@ export const ProductsContainer = styled.div`
     border: 1px solid #FF9935;
 
 `
-export const ProductBx = styled.div`
+export const ProductBx = styled.li`
+    list-style: none;
     margin: auto;
     display: flex;
     flex-direction: row;

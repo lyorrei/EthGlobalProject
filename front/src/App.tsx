@@ -11,7 +11,9 @@ import GlobalStyle from './styles/global'
 import Navbar from './components/navbar'
 
 import styled from 'styled-components'
+import Deliveryman from './components/deliveryman'
 import Restaurant from './components/restaurants'
+import RestaurantHome from './components/restaurantHome'
 import RestaurantInformation from './components/restaurantInformation'
 
 const PageContainer = styled.div`
@@ -26,6 +28,8 @@ const App = () => {
             <PageContainer>
                 <Routes>
                     <Route path="/restaurants" element={<Restaurant />} />
+                    <Route path="/restaurantHome/" element={<RestaurantHome />} />
+                    <Route path="/deliveryman" element={<Deliveryman />} />
                     <Route path="/restaurants/:id" element={<RestaurantInformation />} />
                     <Route path="/" element={<Home />} />
                 </Routes>

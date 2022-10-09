@@ -7,9 +7,15 @@ import { Container, Alert } from "./style";
 type Inputs = {
   name: string;
   price: string;
+  description: string;
 };
 
-const NewProductForm: React.FC = (props) => {
+interface Props {
+  onAddProduct(product:any):void
+  closeModal():void
+}
+
+const NewProductForm: React.FC<Props> = (props) => {
   const {
     register,
     handleSubmit,
@@ -20,12 +26,17 @@ const NewProductForm: React.FC = (props) => {
     <Container>
       <form
         onSubmit={handleSubmit((data) => {
-          alert(JSON.stringify(data));
+          props.onAddProduct(data)
+          props.closeModal()
         })}
       >
         <label htmlFor="productName">Product Name</label>
         <Input id="productName" {...register("name", { required: true })} />
         {errors.name && <Alert>This field is required</Alert>}
+
+        <label htmlFor="productDescription">Product Description</label>
+        <Input id="productDescription" {...register("description", { required: true })} />
+        {errors.description && <Alert>This field is required</Alert>}
 
         <label htmlFor="productPrice">Product Price</label>
         <Input id="productPrice" {...register("price", { required: true })} type="number" />

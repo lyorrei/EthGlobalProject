@@ -1,20 +1,24 @@
-import React from 'react'
-import { Container, Title } from './style'
-import RestaurantProducts from '../restaurantProducts'
-import AddButton from '../addButton'
+import React, { useState } from "react";
+import { Container, Title } from "./style";
+import RestaurantProducts from "../restaurantProducts";
+import AddButton from "../addButton";
 
 interface Props {}
 
 const RestaurantHome: React.FC<Props> = (props) => {
-    return (
-        <Container>
-            <Title>
-               Products
-            </Title>
-            <RestaurantProducts></RestaurantProducts>
-            <AddButton></AddButton>
-        </Container>
-    )
-}
+  const [products, setProduct] = useState<any>([]);
 
-export default RestaurantHome
+  function onAddProduct(newProduct: any) {
+    setProduct([...products, newProduct]);
+  }
+
+  return (
+    <Container>
+      <Title>Products</Title>
+      <RestaurantProducts products={products}></RestaurantProducts>
+      <AddButton onAddProduct={onAddProduct}></AddButton>
+    </Container>
+  );
+};
+
+export default RestaurantHome;
