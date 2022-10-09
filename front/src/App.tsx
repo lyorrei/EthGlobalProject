@@ -9,12 +9,11 @@ import Home from './components/home'
 import GlobalStyle from './styles/global'
 import Login from './components/login'
 
-import RestaurantHome from './components/restaurantHome'
-
 import Navbar from './components/navbar'
 
 import styled from 'styled-components'
 import Restaurant from './components/restaurants'
+import RestaurantInformation from './components/restaurantInformation'
 
 const PageContainer = styled.div`
     padding-top: calc(5vh + 7.2rem);
@@ -31,6 +30,7 @@ const App = () => {
                     <Route path="/login/restaurant" element={<Login />} />
                     <Route path="/login/delivery" element={<Login />} />
                     <Route path="/restaurants" element={<Restaurant />} />
+                    <Route path="/restaurants/:id" element={<RestaurantInformation />} />
                     <Route path="/" element={<Home />} />
                 </Routes>
             </PageContainer>
