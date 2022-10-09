@@ -14,6 +14,7 @@ import styled from 'styled-components'
 import Restaurant from './components/restaurants'
 import RestaurantInformation from './components/restaurantInformation'
 import Checkout from './components/checkout'
+import RestaurantHome from './components/restaurantHome'
 
 const PageContainer = styled.div`
     padding-top: calc(5vh + 7.2rem);
@@ -29,6 +30,7 @@ const App = () => {
                     <Route path="/restaurants" element={<Restaurant />} />
                     <Route path="/restaurants/:id" element={<RestaurantInformation />} />
                     <Route path="/checkout" element={<Checkout />} />
+                    <Route path="/restaurant" element={<RestaurantHome />} />
                     <Route path="/" element={<Home />} />
                 </Routes>
             </PageContainer>

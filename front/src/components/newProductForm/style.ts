@@ -4,16 +4,14 @@ export const Container = styled.div`
   form {
     display: flex;
     flex-direction: column;
+    grid-gap: 1rem;
   }
 
   label {
     font-size: 18px;
   }
 
-  form input {
-    margin: 10px 15px;
-    padding: 10px;
-  }
+  
 `;
 
 export const Alert = styled.span`

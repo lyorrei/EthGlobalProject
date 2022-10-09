@@ -2,17 +2,26 @@ import React from 'react'
 import { Container, Title } from './style'
 import RestaurantProducts from '../restaurantProducts'
 import AddButton from '../addButton'
+import RestaurantBox from '../restaurantBox'
 
-interface Props {}
+const RestaurantHome: React.FC = () => {
+    const restaurant = {
+        id: 1,
+        name: 'Pizza Pinheiros',
+        rating: 4.8,
+        distance: 0.3,
+        imageUrl: 'https://img.freepik.com/premium-vector/restaurant-logo-design-template_79169-56.jpg?w=2000',
+    }
 
-const RestaurantHome: React.FC<Props> = (props) => {
     return (
         <Container>
-            <Title>
-               Products
-            </Title>
-            <RestaurantProducts></RestaurantProducts>
-            <AddButton></AddButton>
+            <div style={{  marginTop: '2rem' }}>
+                <RestaurantBox {...restaurant} />
+            </div>
+
+            <Title>Products</Title>
+            <RestaurantProducts />
+            <AddButton />
         </Container>
     )
 }

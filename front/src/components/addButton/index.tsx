@@ -30,7 +30,7 @@ const AddButton: React.FC<Props> = (props) => {
         closeModal={closeModal}
         title="Register a new product"
       >
-        <NewProductForm></NewProductForm>
+        <NewProductForm />
       </Modal>
     </Container>
   );

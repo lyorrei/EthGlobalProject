@@ -1,14 +1,10 @@
 import styled from 'styled-components'
 
 export const ProductsContainer = styled.div`
-    width: 500px;
     margin: auto;
-    margin-top: 20px;
+    margin: 2rem 0;
     display: flex;
     flex-direction: column;
-    border-radius: 15px;
-    border: 1px solid #FF9935;
-
 `
 export const ProductBx = styled.div`
     margin: auto;
@@ -16,14 +12,17 @@ export const ProductBx = styled.div`
     flex-direction: row;
     margin: 5px;
     padding: 10px;
-
+    border: 1px solid #ff9935;
+    border-radius: 1rem;
+    align-items: center;
+    grid-gap: 2rem;
 `
 export const ProductImg = styled.div`
     width: 100px;
     display: flex;
     align-items: center;
 
-    img{
+    img {
         width: 100%;
         border-radius: 15px;
         margin: 10px;
@@ -35,21 +34,19 @@ export const ProductInfos = styled.div`
     flex-direction: column;
     margin: 10px 20px;
 
-    h1{
+    h1 {
         font-size: 20px;
         color: #4f4f4f;
     }
-    
-    h3{
+
+    h3 {
         font-size: 16px;
         color: #d9d9d9;
     }
-    
-    
-    p{
-        font-size: 16px;
-        color: #3F833E;
-        font-weight: bold   ;
-    }
 
-`   
+    p {
+        font-size: 16px;
+        color: #3f833e;
+        font-weight: bold;
+    }
+`
