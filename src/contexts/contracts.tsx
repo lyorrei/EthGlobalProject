@@ -8,7 +8,7 @@ import contractAddresses from '../ethereum/contractsAddresses.json'
 import storesManagementJson from '../ethereum/build/contracts/StoresManagement.json'
 import storeJson from '../ethereum/build/contracts/Store.json'
 
-const ContractsContext = createContext(null)
+const ContractsContext = createContext<any>(null)
 
 export default function ContractsProvider({ children }: any) {
     const { provider, web3auth } = useAuth()

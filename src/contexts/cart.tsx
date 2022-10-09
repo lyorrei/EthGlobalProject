@@ -7,7 +7,7 @@ export interface ProductInterface {
     price: number
 }
 
-const CartContext = createContext(null)
+const CartContext = createContext<any>(null)
 
 export const checkIfProductIsInCart = (cart: ProductInterface[], product: ProductInterface) => {
     const isInCart = cart.some((productFromCart) => productFromCart.id === product.id)
