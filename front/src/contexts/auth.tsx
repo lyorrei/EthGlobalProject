@@ -1,16 +1,16 @@
 import React, { createContext, useState, useContext, useEffect } from 'react'
 import { Web3Auth } from '@web3auth/web3auth'
 import { CHAIN_NAMESPACES, SafeEventEmitterProvider } from '@web3auth/base'
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom'
 
 const clientId = 'BIMZtCpD-qDHMvOHnCuuUUM5l_i3nOZoOBqmJKMT3QHkr10YkZ3M7DIz5rWb_ZSIMoQQtGyCRC6SRz7gDzl6sAc'
 
-const AuthContext = createContext(null)
+const AuthContext = createContext<any>(null)
 
 export default function AuthProvider({ children }: any) {
     const [web3auth, setWeb3auth] = useState<Web3Auth | null>(null)
     const [provider, setProvider] = useState<SafeEventEmitterProvider | null>(null)
-    const navigate = useNavigate();
+    const navigate = useNavigate()
 
     useEffect(() => {
         const init = async () => {
@@ -46,7 +46,7 @@ export default function AuthProvider({ children }: any) {
         const web3authProvider = await web3auth.connect()
         setProvider(web3authProvider)
 
-        navigate(replaceRoute);
+        navigate(replaceRoute)
     }
 
     const logout = async () => {
@@ -57,7 +57,7 @@ export default function AuthProvider({ children }: any) {
         await web3auth.logout()
         setProvider(null)
 
-        navigate("/");
+        navigate('/')
     }
 
     return (
@@ -81,6 +81,6 @@ export function useAuth() {
         web3auth,
         login,
         logout,
-        provider,
+        provider
     }
 }
