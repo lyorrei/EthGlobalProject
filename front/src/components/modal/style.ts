@@ -12,7 +12,7 @@ export const ModalContainer = styled(motion.div)`
     box-shadow: 0 2rem 2rem rgba(0, 0, 0, 0.2);
     padding: 2rem;
     background-color: ${props => props.theme.colors.white};
-    border-radius: 3px;
+    border-radius: 10px;
     z-index: 150;
 `
 
@@ -22,8 +22,8 @@ export const ModalHeader = styled.div`
     align-items: center;
 
     h5 {
-        font-size: 4rem;
-        font-weight: 300;
+        font-size: 3rem;
+        font-weight: 400;
         color: ${props => props.theme.colors.greyDark1};
         margin-right: 4rem;
     }
@@ -33,6 +33,10 @@ export const ModalHeader = styled.div`
         height: 2rem;
         fill: ${props => props.theme.colors.greyDark2};
         cursor: pointer;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+
 
         &:hover {
             transform: scale(1.1);

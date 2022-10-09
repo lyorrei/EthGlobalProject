@@ -28,7 +28,7 @@ const App = () => {
             <PageContainer>
                 <Routes>
                     <Route path="/login/customer" element={<Login />} />
-                    <Route path="/login/restaurant" element={<Login />} />
+                    <Route path="/login/restaurant" element={<RestaurantHome />} />
                     <Route path="/login/delivery" element={<Login />} />
                     <Route path="/restaurants" element={<Restaurant />} />
                     <Route path="/" element={<Home />} />
