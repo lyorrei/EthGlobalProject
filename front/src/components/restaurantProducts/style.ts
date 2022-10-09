@@ -6,7 +6,8 @@ export const ProductsContainer = styled.div`
     display: flex;
     flex-direction: column;
 `
-export const ProductBx = styled.div`
+export const ProductBx = styled.li`
+    list-style: none;
     margin: auto;
     display: flex;
     flex-direction: row;

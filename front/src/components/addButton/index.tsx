@@ -4,8 +4,11 @@ import { Container, Button, Text } from "./style";
 import plusIcon from "../../assets/plusIcon.png";
 import Modal from "../modal";
 import NewProductForm from "../newProductForm";
+import Product from "../product";
 
-interface Props {}
+interface Props {
+  onAddProduct(product:any):void
+}
 
 const AddButton: React.FC<Props> = (props) => {
 
@@ -14,7 +17,7 @@ const AddButton: React.FC<Props> = (props) => {
   const closeModal = () => {
     setShowModal(false);
   };
-
+  
   const openModal = () => {
     setShowModal(true);
   };
@@ -30,7 +33,7 @@ const AddButton: React.FC<Props> = (props) => {
         closeModal={closeModal}
         title="Register a new product"
       >
-        <NewProductForm />
+        <NewProductForm onAddProduct={props.onAddProduct} closeModal={closeModal}></NewProductForm>
       </Modal>
     </Container>
   );

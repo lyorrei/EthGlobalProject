@@ -1,8 +1,15 @@
-import React from 'react'
-import { ProductsContainer, ProductBx, ProductImg, ProductInfos } from './style'
-import pizzaImg from '../../assets/pizza-pepperoni.png'
+import React from "react";
+import {
+  ProductsContainer,
+  ProductBx,
+  ProductImg,
+  ProductInfos,
+} from "./style";
+import pizzaImg from "../../assets/pizza-pepperoni.png";
 
-interface Props {}
+interface Props {
+  products: any;
+}
 
 const RestaurantProducts: React.FC<Props> = (props) => {
     const products = [
