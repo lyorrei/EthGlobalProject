@@ -1,16 +1,19 @@
 import React from "react";
 import { ProductsContainer, ProductBx, ProductImg, ProductInfos } from "./style";
+import pizzaImg from "../../assets/pizza-pepperoni.png";
 
 interface Props {}
 
 const RestaurantProducts: React.FC<Props> = (props) => {
+  
+  
   return (
     <ProductsContainer>
       <ProductBx>
         <ProductImg>
           <img
-            src="https://claudia.abril.com.br/wp-content/uploads/2020/07/pizza-pepperoni.jpg"
-            alt=""
+            src={pizzaImg}
+            alt="Pizza"
           />
         </ProductImg>
         <ProductInfos>
