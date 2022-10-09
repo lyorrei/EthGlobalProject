@@ -10,6 +10,7 @@ import GlobalStyle from './styles/global'
 import Login from './components/login'
 
 import RestaurantHome from './components/restaurantHome'
+import Deliveryman from './components/deliveryman'
 
 import Navbar from './components/navbar'
 
@@ -29,7 +30,7 @@ const App = () => {
                 <Routes>
                     <Route path="/login/customer" element={<Login />} />
                     <Route path="/login/restaurant" element={<RestaurantHome />} />
-                    <Route path="/login/delivery" element={<Login />} />
+                    <Route path="/login/delivery" element={<Deliveryman />} />
                     <Route path="/restaurants" element={<Restaurant />} />
                     <Route path="/" element={<Home />} />
                 </Routes>
