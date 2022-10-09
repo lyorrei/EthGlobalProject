@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Box } from '../checkout/style'
 
 export const Container = styled(Box)`
-    top: 60%;
+    top: 70%;
     left: 40%;
     background-color: ${props => props.theme.colors.white};
 

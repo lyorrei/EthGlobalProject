@@ -1,13 +1,13 @@
 import { ethers } from 'ethers'
-import contractAddresses from '../../../ethereum/contractsAddresses.json'
-import storesManagementJson from '../../../ethereum/build/contracts/StoresManagement.json'
-import storeJson from '../../../ethereum/build/contracts/Store.json'
-import ordersJson from '../../../ethereum/build/contracts/Orders.json'
+import contractAddresses from '../ethereum/contractsAddresses.json'
+import storesManagementJson from '../ethereum/build/contracts/StoresManagement.json'
+import storeJson from '../ethereum/build/contracts/Store.json'
+import ordersJson from '../ethereum/build/contracts/Orders.json'
 
 export const storesManagement = async (web3authProvider: any) => {
     const provider = new ethers.providers.Web3Provider(web3authProvider)
     const contract = new ethers.Contract(
-        contractAddresses.addresses.at(-1).storesManagement,
+        contractAddresses?.addresses?.at(-1)?.storesManagement as string,
         storesManagementJson.abi,
         provider
     )

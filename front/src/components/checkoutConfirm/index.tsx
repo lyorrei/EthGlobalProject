@@ -21,7 +21,7 @@ const CheckoutConfirm: React.FC<Props> = ({ setStage, stage, address }) => {
     const { cart, cartPrice } = useCart()
 
     useEffect(() => {
-        if (stage === 1) {
+        if (stage === 2) {
             setIsVisible(true)
         } else {
             setIsVisible(false)

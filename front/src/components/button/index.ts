@@ -39,6 +39,13 @@ export const AddProductBtn = styled(Button)<any>`
     border-radius: 1rem;
     float: right;
 
+   &:disabled,
+   &[disabled] {
+        border: 1px solid #999999;
+        background-color: #cccccc;
+        color: #666666;
+    }
+
     ${(props) => props.grey && `background-color: ${props.theme.colors.greyDark3};`}
 `
 

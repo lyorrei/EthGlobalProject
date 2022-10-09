@@ -1,8 +1,8 @@
 //SPDX-License-Identifier: GPL-3.0
 pragma solidity ^0.8.0;
 
-import "../../../node_modules/@openzeppelin/contracts/token/ERC1155/ERC1155.sol";
-import "../../../node_modules/@openzeppelin/contracts/utils/Counters.sol";
+import "../node_modules/@openzeppelin/contracts/token/ERC1155/ERC1155.sol";
+import "../node_modules/@openzeppelin/contracts/utils/Counters.sol";
 
 contract Products is ERC1155 {
     address public owner;

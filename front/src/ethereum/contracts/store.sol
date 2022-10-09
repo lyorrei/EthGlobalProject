@@ -2,8 +2,8 @@
 
 pragma solidity ^0.8.15;
 
-import "../../../node_modules/@openzeppelin/contracts/token/ERC1155/utils/ERC1155Holder.sol";
-import "../../../node_modules/@openzeppelin/contracts/token/ERC721/utils/ERC721Holder.sol";
+import "../node_modules/@openzeppelin/contracts/token/ERC1155/utils/ERC1155Holder.sol";
+import "../node_modules/@openzeppelin/contracts/token/ERC721/utils/ERC721Holder.sol";
 import "./product.sol";
 import "./orders.sol";
 import "./storesManagement.sol";
@@ -33,8 +33,8 @@ contract Store is ERC1155Holder, ERC721Holder {
         string memory _document,
         address _ordersAddress,
         address _storesManagementAddress,
-        string _physicalAddress,
-        string _uri
+        string memory _physicalAddress,
+        string memory _uri
     ) {
         owner = msg.sender;
         name = _name;
@@ -59,19 +59,19 @@ contract Store is ERC1155Holder, ERC721Holder {
         products.burnProduct(_id, _amount);
     }
 
-    function getProducts() public {
+    function getProducts() public view returns (string[] memory) {
         uint256 id = products._tokenIds();
         uint256[] memory itens;
-        address[] addresses;
-        string[] uris;
+        address[] memory addresses;
+        string[] memory uris;
         for (uint256 i = 0; i < id; i++) {
             itens[i] = i;
             addresses[i] = address(this);
         }
-        uint256[] amountOfItens = products.balanceOfBatch(addresses, itens);
+        uint256[] memory amountOfItens = products.balanceOfBatch(addresses, itens);
         for (uint256 i = 0; i < id; i++) {
             if (amountOfItens[i] > 0) {
-                uris.push(products.uri(i));
+                uris[i] = products.uri(i);
             }
         }
         return uris;

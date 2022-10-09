@@ -3,7 +3,7 @@ import { BsPlusSquare } from 'react-icons/bs'
 import { Link } from 'react-router-dom'
 import { Container, HeaderContainer } from '../checkout/style'
 import { AddProductBtn, Button } from '../button'
-import { AddressesContainer, AddressContainer, Check, NoAddresses, AddressItem, ButtonsContainer } from './style'
+import { AddressesContainer, AddressContainer, Check, NoAddresses, AddressItem, ButtonsContainer, Text } from './style'
 import { BoxContainerVariants } from '../checkout'
 import { Input } from '../input'
 import { useForm } from 'react-hook-form'
@@ -16,18 +16,16 @@ const Form = styled.form`
 
     span {
         color: red;
-        margin-top: -.5rem;
+        margin-top: -0.5rem;
     }
 `
 
 interface Props {
-    address: any
-    setAddress(address: any): void
     stage: number
     setStage(stage: number): void
 }
 
-const CheckoutAddress: React.FC<Props> = ({ address, setAddress, stage, setStage }) => {
+const CheckoutStake: React.FC<Props> = ({ stage, setStage }) => {
     const [isVisible, setIsVisible] = useState(false)
 
     const {
@@ -37,12 +35,11 @@ const CheckoutAddress: React.FC<Props> = ({ address, setAddress, stage, setStage
     } = useForm()
 
     const nextStage = (form: any) => {
-        setAddress(form)
-        setStage(1)
+        setStage(2)
     }
 
     useEffect(() => {
-        if (stage === 0) {
+        if (stage === 1) {
             setIsVisible(true)
         } else {
             setIsVisible(false)
@@ -56,30 +53,30 @@ const CheckoutAddress: React.FC<Props> = ({ address, setAddress, stage, setStage
             animate={isVisible ? 'visible' : 'hidden'}
             exit="hidden">
             <HeaderContainer>
-                <h2>Address</h2>
+                <h2>Stake</h2>
             </HeaderContainer>
+
+            <Text>
+                You need to stake to be able to order your food. This is just a assurance for your delivery. Dont worry!
+                As soon as your food gets to the delivery location you can take it back.
+            </Text>
 
             <AddressesContainer>
                 <Form>
-                    <Input placeholder="Street" {...register('street', { required: true })} />
-                    {errors.street && <span>This field is required</span>}
-
-                    <Input placeholder="State" {...register('state', { required: true })} />
-                    {errors.state && <span>This field is required</span>}
-
-                    <Input placeholder="City" {...register('city', { required: true })} />
-                    {errors.city && <span>This field is required</span>}
-
-                    <Input placeholder="Number" {...register('number', { required: true })} />
-                    {errors.number && <span>This field is required</span>}
+                    <Input placeholder="Stake Value" {...register('stake', { required: true })} />
+                    {errors.stake && <span>This field is required</span>}
                 </Form>
             </AddressesContainer>
 
             <ButtonsContainer>
+                <AddProductBtn onClick={() => setStage(0)} grey>
+                    Back
+                </AddProductBtn>
+
                 <AddProductBtn onClick={handleSubmit(nextStage)}>Next</AddProductBtn>
             </ButtonsContainer>
         </Container>
     )
 }
 
-export default CheckoutAddress
+export default CheckoutStake

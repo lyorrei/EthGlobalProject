@@ -1,4 +1,3 @@
-var deliveryMan = artifacts.require('deliveryMan.sol')
 var orders = artifacts.require('orders.sol')
 var storesManagement = artifacts.require('storesManagement.sol')
 
@@ -9,11 +8,9 @@ module.exports = async function (deployer) {
         // Array with contracts' name and address
         let contractsAddresses = {}
 
-        await deployer.deploy(deliveryMan)
         await deployer.deploy(orders)
         await deployer.deploy(storesManagement)
 
-        contractsAddresses['deliveryMan'] = deliveryMan.address
         contractsAddresses['orders'] = orders.address
         contractsAddresses['storesManagement'] = storesManagement.address
 

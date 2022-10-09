@@ -45,7 +45,7 @@
 require('dotenv').config();
 // const { MNEMONIC, PROJECT_ID } = process.env;
 
-const HDWalletProvider = require("../front/node_modules/@truffle/hdwallet-provider");
+const HDWalletProvider = require("../../node_modules/@truffle/hdwallet-provider");
 console.log(process.env.MINEMONIC_PHRASE)
 module.exports = {
   /**
@@ -90,6 +90,7 @@ module.exports = {
       timeoutBlocks: 50,  // # of blocks before a deployment times out  (minimum/default: 50)
       skipDryRun: false     // Skip dry run before migrations? (default: false for public nets )
     },
+
     //
     // Useful for private networks
     // private: {

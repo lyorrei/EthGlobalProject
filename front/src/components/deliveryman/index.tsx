@@ -10,7 +10,7 @@ const Deliveryman: React.FC<Props> = (props) => {
             <Title>
                Orders
             </Title>
-            <Request></Request>
+            <Request />
         </Container>
     )
 }
