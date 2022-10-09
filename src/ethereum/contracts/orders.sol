@@ -40,11 +40,11 @@ contract Orders is ERC721, Users, DeliveryMan {
     constructor() ERC721("Order", "ODR") {
         owner = msg.sender;
         priceFeed = AggregatorV3Interface(
-            0x0715A7794a1dc8e42615F059dD6e406A6594651A
+           0x327e23A4855b6F663a28c5161541d69Af8973302
         );
     }
 
-    //Getting the latestPrice of dollar throught chainlinks
+    //Getting the latestPrice of dollar throught chainlink
     function getLatestPrice() public view returns (int256) {
         (
             uint80 roundID,
