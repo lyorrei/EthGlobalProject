@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react'
 import Spinner from '../spinner'
 import { Container } from './style'
-const Spline = React.lazy(() => import('@splinetool/react-spline'))
+ import Spline from '@splinetool/react-spline'
 
 export default function AnimatedFood() {
     return (

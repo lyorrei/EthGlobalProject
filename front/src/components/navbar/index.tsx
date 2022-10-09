@@ -29,9 +29,6 @@ const Navbar: React.FC<Props> = (props) => {
                     <Item>
                         <button onClick={() => login('/restaurant')}>Delivery Man</button>
                     </Item>
-                    <Item>
-                        <Link to={'/about'}>About us</Link>
-                    </Item>
                 </>
             )}
         </Container>

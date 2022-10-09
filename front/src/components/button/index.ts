@@ -1,9 +1,9 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const Button = styled.button`
     background: none;
     border: none;
-    
+
     font-weight: 700;
     font-size: 2rem;
     line-height: 2.4rem;
@@ -17,7 +17,6 @@ export const Button = styled.button`
     }
 `
 
-
 export const AddProductButton = styled(Button)`
     background-color: ${(props) => props.theme.colors.primary};
     padding: 10px;
@@ -27,18 +26,25 @@ export const AddProductButton = styled(Button)`
 
 export const CheckoutButton = styled(Button)`
     border-radius: 3px 2rem 3px 2rem !important;
-    background-color: ${props => props.theme.colors.primary};
+    background-color: ${(props) => props.theme.colors.primary};
     padding: 1.4rem 1.6rem;
     margin: 0 auto;
 `
 
-export const AddProductBtn = styled(Button)`
-    background-color: ${props => props.theme.colors.primary};
+export const AddProductBtn = styled(Button)<any>`
+    background-color: ${(props) => props.theme.colors.primary};
     padding: 1.2rem 1.6rem;
-    display: inline-block;
     font-size: 1.6rem;
-    width: 8rem;
-    margin-left: auto;
+    width: 12rem;
     border-radius: 1rem;
-`;
+    float: right;
 
+    ${(props) => props.grey && `background-color: ${props.theme.colors.greyDark3};`}
+`
+
+export const InlineButton = styled(Button)`
+    display: inline-block;
+    padding: 1.5rem 2.5rem !important;
+    border-radius: 1rem;
+    margin-top: 0;
+`

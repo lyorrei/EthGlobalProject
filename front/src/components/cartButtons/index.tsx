@@ -8,7 +8,7 @@ const cartButtons: React.FC = () => {
     return (
         <>
             <CartButtonContainer>
-                <Link to={'/checkout?method=stripe'}>
+                <Link to={'/checkout'}>
                     <CheckoutButton onClick={() => {}}>Checkout</CheckoutButton>
                 </Link>
             </CartButtonContainer>
