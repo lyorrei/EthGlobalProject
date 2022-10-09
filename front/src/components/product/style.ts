@@ -15,7 +15,7 @@ export const Container = styled.div`
         object-fit: cover;
     }
 
-    div {
+    & > div {
         padding: 2rem;
         display: flex;
         flex-direction: column;

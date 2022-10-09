@@ -17,7 +17,9 @@ const Product: React.FC<Props> = ({ product }) => {
                 <div>
                     <h4>{product.name}</h4>
                     <p>$ {product.price.toFixed(2)}</p>
-                    <AddProductBtn onClick={() => addProduct(product)}>Add</AddProductBtn>
+                    <div style={{display: 'flex', justifyContent: 'end'}}>
+                        <AddProductBtn onClick={() => addProduct(product)}>Add</AddProductBtn>
+                    </div>
                 </div>
             </Container>
         )

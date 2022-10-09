@@ -6,29 +6,66 @@ import {
   ProductInfos,
 } from "./style";
 import pizzaImg from "../../assets/pizza-pepperoni.png";
-import { id } from "ethers/lib/utils";
 
 interface Props {
   products: any;
 }
 
 const RestaurantProducts: React.FC<Props> = (props) => {
-  const listProducts = props.products.map((product:any, index:any) => {
+    const products = [
+        {
+            id: 1,
+            name: 'Pizza Pinheiros',
+            price: 20,
+            imageUrl: '/pizza2.png',
+        },
+        {
+            id: 2,
+            name: 'Pizza Pinheiros 5',
+            price: 12,
+            imageUrl: '/pizza.png',
+        },
+        {
+            id: 3,
+            name: 'Pizza Pinheiros 2 ',
+            price: 14,
+            imageUrl: '/pizza.png',
+        },
+        {
+            id: 4,
+            name: 'Pizza Pinheiros 3',
+            price: 45,
+            imageUrl: '/pizza2.png',
+        },
+        {
+            id: 5,
+            name: 'Pizza Pinheiros 3',
+            price: 45,
+            imageUrl: '/pizza2.png',
+        },
+        {
+            id: 6,
+            name: 'Pizza Pinheiros 3',
+            price: 45,
+            imageUrl: '/pizza2.png',
+        },
+    ]
+
     return (
-        <ProductBx key={product.id}>
-          <ProductImg>
-            <img src={pizzaImg} alt="Pizza" />
-          </ProductImg>
-          <ProductInfos>
-            <h1>{props.products[index].name}</h1>
-            <h3>{props.products[index].description}</h3>
-            <p>{props.products[index].price}</p>
-          </ProductInfos>
-        </ProductBx>
-    );
-  });
+        <ProductsContainer>
+            {products.map((product) => (
+                <ProductBx>
+                    <ProductImg>
+                        <img src={product.imageUrl} alt="Pizza" />
+                    </ProductImg>
+                    <ProductInfos>
+                        <h1>{product.name}</h1>
+                        <p>$ {product.price.toFixed(2)}</p>
+                    </ProductInfos>
+                </ProductBx>
+            ))}
+        </ProductsContainer>
+    )
+}
 
-  return <ProductsContainer>{listProducts}</ProductsContainer>;
-};
-
-export default RestaurantProducts;
+export default RestaurantProducts

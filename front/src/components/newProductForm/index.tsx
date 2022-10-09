@@ -1,13 +1,12 @@
-import React from "react";
-import { useForm } from "react-hook-form";
-import { AddProductButton } from "../button";
-import { Input } from "../input";
-import { Container, Alert } from "./style";
+import React from 'react'
+import { useForm } from 'react-hook-form'
+import { AddProductButton } from '../button'
+import { Input } from '../input'
+import { Container, Alert } from './style'
 
 type Inputs = {
   name: string;
   price: string;
-  description: string;
 };
 
 interface Props {
@@ -34,18 +33,15 @@ const NewProductForm: React.FC<Props> = (props) => {
         <Input id="productName" {...register("name", { required: true })} />
         {errors.name && <Alert>This field is required</Alert>}
 
-        <label htmlFor="productDescription">Product Description</label>
-        <Input id="productDescription" {...register("description", { required: true })} />
-        {errors.description && <Alert>This field is required</Alert>}
 
-        <label htmlFor="productPrice">Product Price</label>
+        <label htmlFor="productPrice">Product Price in $</label>
         <Input id="productPrice" {...register("price", { required: true })} type="number" />
         {errors.price && <Alert>This field is required</Alert>}
 
-        <AddProductButton type="submit" >Create</AddProductButton>
-      </form>
-    </Container>
-  );
-};
+                <AddProductButton type="submit">Create</AddProductButton>
+            </form>
+        </Container>
+    )
+}
 
-export default NewProductForm;
+export default NewProductForm

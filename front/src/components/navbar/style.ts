@@ -10,6 +10,7 @@ export const Container = styled.div`
     left: 5vh;
     right: 5vh;
     top: 5vh;
+    z-index: 1;
 
     background: #ff9935;
     box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
