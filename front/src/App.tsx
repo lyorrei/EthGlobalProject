@@ -7,7 +7,6 @@ import { Routes, Route } from 'react-router-dom'
 import Home from './components/home'
 
 import GlobalStyle from './styles/global'
-import Login from './components/login'
 
 import Navbar from './components/navbar'
 
@@ -26,9 +25,6 @@ const App = () => {
             <Navbar />
             <PageContainer>
                 <Routes>
-                    <Route path="/login/customer" element={<Login />} />
-                    <Route path="/login/restaurant" element={<RestaurantHome />} />
-                    <Route path="/login/delivery" element={<Login />} />
                     <Route path="/restaurants" element={<Restaurant />} />
                     <Route path="/restaurants/:id" element={<RestaurantInformation />} />
                     <Route path="/" element={<Home />} />

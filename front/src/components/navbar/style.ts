@@ -17,13 +17,19 @@ export const Container = styled.div`
 `
 
 export const Logo = styled.div`
-    display: flex;
-    align-items: center;
     margin-right: auto;
+    transition: all .4s;
+
+    a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: ${(props) => props.theme.colors.white};
+    }
 
     svg {
-        width: 10rem;
-        height: 10rem;
+        width: 7.2rem;
+        height: 7.2rem;
         object-fit: cover;
     }
 
@@ -31,7 +37,9 @@ export const Logo = styled.div`
     font-size: 2.6rem;
     line-height: 3.2rem;
 
-    color: ${(props) => props.theme.colors.white};
+    &:hover {
+        transform: scale(1.05);
+    }
 `
 
 export const Item = styled.div`
@@ -39,7 +47,7 @@ export const Item = styled.div`
     display: flex;
     align-items: center;
     margin: 1rem 0;
-    margin-right: 6rem;
+    margin-right: 4rem;
     padding: 0 1.6rem;
 
     border-radius: ${(props) => props.theme.sizes.borderRadius};

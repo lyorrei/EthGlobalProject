@@ -12,8 +12,10 @@ const Navbar: React.FC<Props> = (props) => {
     return (
         <Container>
             <Logo>
-                <ReactLogo />
-                Snack Fair
+                <Link to={'/'}>
+                    <ReactLogo />
+                    Snack Fair
+                </Link>
             </Logo>
             {provider ? (
                 <Item>
